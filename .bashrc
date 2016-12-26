@@ -6,3 +6,4 @@ alias sudo='sudo '
 alias rm='trash '
 alias fuck='eval "$(thefuck --alias)"'
 
+source ~/.git-completion.bash
