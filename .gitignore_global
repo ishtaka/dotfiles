@@ -40,5 +40,13 @@ Temporary Items
 # JetBrains IDE
 .idea
 
-*/Assets/Plugins/Editor*
+# Visual Studio Code
 .vscode
+
+# Unity
+*/Assets/Plugins/Editor*
+
+# Ruby
+.ruby-version
+.ruby-gemset
+.rbenv-gemsets
