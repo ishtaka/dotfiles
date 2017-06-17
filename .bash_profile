@@ -1,7 +1,6 @@
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+eval "$(rbenv init -)"
 
 export HISTSIZE=2000
 export HISTCONTROL=ignoreboth
