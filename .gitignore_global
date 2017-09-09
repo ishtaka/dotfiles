@@ -50,3 +50,5 @@ Temporary Items
 .ruby-version
 .ruby-gemset
 .rbenv-gemsets
+/.bundle
+vendor/bundle
