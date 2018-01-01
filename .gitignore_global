@@ -140,7 +140,6 @@ artifacts/
 *_i.c
 *_p.c
 *_i.h
-*.meta
 *.pgc
 *.pgd
 *.rsp
@@ -557,7 +556,7 @@ build-iPhoneSimulator/
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
-/Assets/Plugins/Editor*
+*/Assets/Plugins/Editor*
 
 # Visual Studio 2015 cache directory
 /.vs/
