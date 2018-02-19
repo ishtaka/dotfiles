@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOT_FILES=(.bashrc .bash_profile .gitignore_global .vimrc .inputrc)
+DOT_FILES=(.bashrc .bash_profile .gitignore_global .vimrc .inputrc .Brewfile)
 
 for file in ${DOT_FILES[@]}
 do
