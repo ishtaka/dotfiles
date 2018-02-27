@@ -7,6 +7,7 @@ tap "homebrew/php"
 
 # Packages
 brew "git"
+brew "git-lfs"
 brew "curl"
 brew "wget"
 brew "coreutils"
