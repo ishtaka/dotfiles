@@ -3,6 +3,7 @@ tap "caskroom/cask"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "homebrew/php"
 
 # Packages
 brew "git"
@@ -27,6 +28,9 @@ brew "mono"
 # Ruby
 brew "rbenv"
 brew "rbenv-gemset"
+
+# PHP
+brew "phpbrew"
 
 # Databases
 brew "mysql", restart_service: true
@@ -53,6 +57,7 @@ cask "docker"
 cask "clion"
 cask "rider"
 cask "rubymine"
+cask "phpstorm"
 
 # Misc
 cask "kindle"
