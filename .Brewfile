@@ -55,10 +55,7 @@ cask "java"
 cask "docker"
 
 # IDEs
-cask "clion"
-cask "rider"
-cask "rubymine"
-cask "phpstorm"
+cask "jetbrains-toolbox"
 
 # Misc
 cask "kindle"
