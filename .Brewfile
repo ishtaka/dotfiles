@@ -36,6 +36,10 @@ brew "rbenv-gemset"
 # PHP
 brew "phpbrew"
 
+# Servers
+brew "httpd"
+brew "nginx"
+
 # Databases
 brew "mysql", restart_service: true
 
