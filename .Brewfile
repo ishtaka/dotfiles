@@ -1,6 +1,5 @@
 # Formula
 tap "caskroom/cask"
-tap "caskroom/versions"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
@@ -61,7 +60,7 @@ cask "firefox"
 cask "google-chrome"
 
 # Development Tools
-cask "java8"
+cask "java"
 cask "dash"
 cask "docker"
 
