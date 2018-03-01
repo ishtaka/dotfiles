@@ -6,17 +6,17 @@ tap "homebrew/services"
 tap "homebrew/php"
 
 # Packages
+brew "bash-completion"
+brew "coreutils"
+brew "curl"
 brew "git"
 brew "git-lfs"
-brew "curl"
-brew "wget"
-brew "coreutils"
-brew "tree"
 brew "htop"
 brew "nkf"
-brew "bash-completion"
-brew "trash"
 brew "thefuck"
+brew "trash"
+brew "tree"
+brew "wget"
 
 # C, C++
 brew "boost"
