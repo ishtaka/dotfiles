@@ -61,6 +61,7 @@ cask "docker"
 
 # IDEs
 cask "jetbrains-toolbox"
+cask "atom"
 
 # Misc
 cask "kindle"
