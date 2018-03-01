@@ -1,5 +1,6 @@
 # Formula
 tap "caskroom/cask"
+tap "caskroom/versions"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
@@ -11,6 +12,7 @@ brew "coreutils"
 brew "curl"
 brew "git"
 brew "git-lfs"
+brew "graphviz"
 brew "htop"
 brew "nkf"
 brew "thefuck"
@@ -55,7 +57,7 @@ cask "firefox"
 cask "google-chrome"
 
 # Development Tools
-cask "java"
+cask "java8"
 cask "dash"
 cask "docker"
 
