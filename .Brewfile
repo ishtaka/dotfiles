@@ -37,6 +37,9 @@ brew "phpbrew"
 # Databases
 brew "mysql", restart_service: true
 
+# Editors
+brew "vim"
+
 # Terminal
 cask "iterm2"
 
