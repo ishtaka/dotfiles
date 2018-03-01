@@ -52,6 +52,7 @@ cask "google-chrome"
 
 # Development Tools
 cask "java"
+cask "dash"
 cask "docker"
 
 # IDEs
