@@ -25,6 +25,7 @@ brew "cmake"
 
 # CSharp
 brew "mono"
+brew "nuget"
 
 # Ruby
 brew "rbenv"
