@@ -6,6 +6,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'chr4/nginx.vim'
 Plugin 'avakhov/vim-yaml'
+Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'tomasr/molokai'
 
 call vundle#end()
