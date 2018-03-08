@@ -20,6 +20,10 @@ set nobackup
 set noswapfile
 set autoread
 
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
 set number
 set nowrap
 set virtualedit=onemore
