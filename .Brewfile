@@ -41,6 +41,7 @@ brew "nginx"
 
 # Databases
 brew "mysql", restart_service: true
+brew "redis"
 
 # Editors
 brew "vim"
