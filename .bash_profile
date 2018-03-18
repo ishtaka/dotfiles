@@ -1,6 +1,7 @@
 # PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/opt/openssl/bin:$PATH
 
 # History
 export HISTSIZE=2000
