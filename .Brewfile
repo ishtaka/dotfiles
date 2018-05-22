@@ -3,7 +3,6 @@ tap "caskroom/cask"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
-tap "homebrew/php"
 
 # Packages
 brew "bash-completion"
@@ -31,9 +30,6 @@ brew "nuget"
 # Ruby
 brew "rbenv"
 brew "rbenv-gemset"
-
-# PHP
-brew "phpbrew"
 
 # Servers
 brew "httpd"
