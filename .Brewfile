@@ -61,6 +61,7 @@ cask "google-chrome"
 cask "java"
 cask "dash"
 cask "docker"
+cask "unity-hub"
 
 # IDEs
 cask "jetbrains-toolbox"
