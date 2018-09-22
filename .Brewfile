@@ -52,6 +52,7 @@ cask "aquaskk"
 cask "cmd-eikana"
 cask "qblocker"
 cask "cheatsheet"
+cask "spectacle"
 
 # Browsers
 cask "firefox"
