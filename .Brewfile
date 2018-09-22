@@ -66,6 +66,7 @@ cask "unity-hub"
 
 # IDEs
 cask "jetbrains-toolbox"
+cask "visual-studio-code"
 cask "atom"
 
 # Misc
