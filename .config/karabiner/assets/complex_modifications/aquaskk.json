@@ -1,0 +1,35 @@
+{
+  "title": "AquaSKK",
+  "rules": [
+    {
+      "description": "Control+J to Kana on Terminal/iTerm2",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "japanese_kana"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

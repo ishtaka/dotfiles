@@ -50,7 +50,7 @@ cask "iterm2"
 # Inputs
 cask "alfred"
 cask "aquaskk"
-cask "cmd-eikana"
+cask "karabiner-elements"
 cask "qblocker"
 cask "cheatsheet"
 cask "spectacle"
