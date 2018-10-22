@@ -33,6 +33,9 @@ brew "nuget"
 brew "rbenv"
 brew "rbenv-gemset"
 
+# Python
+brew "pyenv"
+
 # Servers
 brew "httpd"
 brew "nginx"

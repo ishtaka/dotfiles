@@ -11,6 +11,9 @@ export HISTIGNORE=ls*:fg*:bg*:history*:which*
 # Ruby
 eval "$(rbenv init -)"
 
+# Python
+eval "$(pyenv init -)"
+
 # Java
 export JAVA_HOME=`/usr/libexec/java_home`
 
