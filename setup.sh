@@ -7,4 +7,4 @@ do
     ln -s $HOME/dotfiles/$file $HOME/$file
 done
 
-rsync -a .config/karabiner/assets/complex_modifications/ ~/.config/karabiner/assets/complex_modifications/
+rsync -av .config/karabiner ~/.config
