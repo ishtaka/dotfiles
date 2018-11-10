@@ -8,6 +8,9 @@ export HISTSIZE=2000
 export HISTCONTROL=ignoreboth
 export HISTIGNORE=ls*:fg*:bg*:history*:which*
 
+# direnv
+eval "$(direnv hook bash)"
+
 # Ruby
 eval "$(rbenv init -)"
 
