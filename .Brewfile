@@ -54,7 +54,6 @@ cask "iterm2"
 cask "alfred"
 cask "aquaskk"
 cask "karabiner-elements"
-cask "qblocker"
 cask "cheatsheet"
 cask "spectacle"
 
