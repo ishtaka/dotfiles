@@ -5,7 +5,7 @@ alias vi='vim '
 alias sudo='sudo '
 
 alias rm='trash '
-alias fuck='eval "$(thefuck --alias)"'
+alias fuck='eval $(thefuck $(fc -ln -l))'
 
 # git
 source /usr/local/etc/bash_completion.d/git-prompt.sh
