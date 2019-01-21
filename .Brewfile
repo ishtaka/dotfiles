@@ -67,6 +67,7 @@ cask "java"
 cask "dash"
 cask "docker"
 cask "unity-hub"
+cask "wireshark"
 
 # IDEs
 cask "jetbrains-toolbox"
