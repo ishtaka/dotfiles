@@ -22,6 +22,8 @@ brew "thefuck"
 brew "trash"
 brew "tree"
 brew "wget"
+brew "zsh"
+brew "zsh-completions"
 
 # C, C++
 brew "boost"
