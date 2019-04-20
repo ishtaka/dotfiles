@@ -2,6 +2,7 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "sanemat/font"
 
 # Packages
 brew "bash-completion"
@@ -18,10 +19,13 @@ brew "mas"
 brew "nkf"
 brew "peco"
 brew "protobuf"
+brew "sanemat/font/ricty", args: ["with-powerline"]
 brew "thefuck"
 brew "trash"
 brew "tree"
 brew "wget"
+brew "zsh"
+brew "zsh-completions"
 
 # C, C++
 brew "boost"
