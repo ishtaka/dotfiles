@@ -31,6 +31,9 @@ alias rm='trash '
 # powerline
 RPROMPT=""
 
+# Ignore EOF
+setopt IGNORE_EOF
+
 # cdr
 if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
     autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -59,6 +62,6 @@ if type "peco" > /dev/null 2>&1; then
     fi
   }
   zle -N peco-cdr
-  bindkey '^E' peco-cdr
+  bindkey '^D' peco-cdr
 fi
 

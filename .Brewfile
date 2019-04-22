@@ -1,8 +1,8 @@
 # Formula
 tap "homebrew/bundle"
 tap "homebrew/core"
+tap "homebrew/cask-fonts"
 tap "homebrew/services"
-tap "sanemat/font"
 
 # Packages
 brew "bash-completion"
@@ -19,7 +19,6 @@ brew "mas"
 brew "nkf"
 brew "peco"
 brew "protobuf"
-brew "sanemat/font/ricty", args: ["with-powerline"]
 brew "thefuck"
 brew "trash"
 brew "tree"
@@ -56,6 +55,9 @@ brew "vim"
 
 # Terminal
 cask "iterm2"
+
+# Fonts
+cask "font-hack-nerd-font"
 
 # Inputs
 cask "alfred"
