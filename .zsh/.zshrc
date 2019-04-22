@@ -22,9 +22,6 @@ export JAVA_HOME=`/usr/libexec/java_home`
 # direnv
 eval "$(direnv hook zsh)"
 
-# fuck
-eval $(thefuck --alias)
-
 # alias
 alias rm='trash '
 
