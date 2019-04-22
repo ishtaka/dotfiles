@@ -23,6 +23,7 @@ export JAVA_HOME=`/usr/libexec/java_home`
 eval "$(direnv hook zsh)"
 
 # alias
+alias cat='ccat '
 alias rm='trash '
 
 # powerline

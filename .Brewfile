@@ -6,6 +6,7 @@ tap "homebrew/services"
 
 # Packages
 brew "bash-completion"
+brew "ccat"
 brew "coreutils"
 brew "curl"
 brew "direnv"
