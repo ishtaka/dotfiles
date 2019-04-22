@@ -1,7 +1,7 @@
 # Formula
 tap "homebrew/bundle"
-tap "homebrew/core"
 tap "homebrew/cask-fonts"
+tap "homebrew/core"
 tap "homebrew/services"
 
 # Packages
@@ -66,20 +66,21 @@ cask "cheatsheet"
 cask "spectacle"
 
 # Browsers
-cask "firefox"
 cask "google-chrome"
 
 # Development Tools
-cask "java"
 cask "dash"
 cask "docker"
+cask "java"
 cask "unity-hub"
 cask "wireshark"
 
 # IDEs
 cask "jetbrains-toolbox"
-cask "visual-studio-code"
+
+# Editors
 cask "atom"
+cask "visual-studio-code"
 
 # Misc
 cask "kindle"
