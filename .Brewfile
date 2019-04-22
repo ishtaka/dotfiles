@@ -47,7 +47,7 @@ brew "httpd"
 brew "nginx"
 
 # Databases
-brew "mysql", restart_service: true
+brew "mysql"
 brew "redis"
 
 # Editors
