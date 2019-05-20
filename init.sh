@@ -1,10 +1,12 @@
 #!/bin/sh
 
-DOT_FILES=(.gitignore_global .vimrc .inputrc .Brewfile)
+DOT_FILES=(.Brewfile .gitignore_global .inputrc .vimrc)
+
+dir_path=$(cd $(dirname $0) && pwd)
 
 for file in ${DOT_FILES[@]}
 do
-    ln -s $HOME/dotfiles/$file $HOME/$file
+    ln -s $dir_path/$file $HOME/$file
 done
 
 # Homebrew
