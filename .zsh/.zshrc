@@ -24,6 +24,7 @@ eval "$(direnv hook zsh)"
 
 # alias
 alias cat='ccat '
+alias g='git'
 alias rm='trash '
 
 # powerline
