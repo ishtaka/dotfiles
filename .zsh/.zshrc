@@ -61,5 +61,17 @@ if type "peco" > /dev/null 2>&1; then
   }
   zle -N peco-cdr
   bindkey '^D' peco-cdr
+
+  if type "ghq" > /dev/null 2>&1; then
+      function peco-ghq() {
+          local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+          if [ -n "$selected_dir" ]; then
+              BUFFER="cd ${selected_dir}"
+              zle accept-line
+          fi
+      }
+      zle -N peco-ghq
+      bindkey '^O' peco-ghq
+  fi
 fi
 
