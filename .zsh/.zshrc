@@ -65,7 +65,7 @@ if type "peco" > /dev/null 2>&1; then
 
   if type "ghq" > /dev/null 2>&1; then
       function peco-ghq() {
-          local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+          local selected_dir=$(ghq list -p | sort | peco --query "$LBUFFER")
           if [ -n "$selected_dir" ]; then
               BUFFER="cd ${selected_dir}"
               zle accept-line
