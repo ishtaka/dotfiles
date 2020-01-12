@@ -16,6 +16,8 @@ fi
 eval "$(rbenv init -)"
 # Python
 eval "$(pyenv init -)"
+# Go
+eval "$(goenv init -)"
 # Java
 export JAVA_HOME=`/usr/libexec/java_home`
 

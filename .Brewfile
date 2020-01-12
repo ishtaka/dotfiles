@@ -43,6 +43,9 @@ brew "rbenv-gemset"
 # Python
 brew "pyenv"
 
+# Go
+brew "goenv", args: ["HEAD"]
+
 # Servers
 brew "httpd"
 brew "nginx"
