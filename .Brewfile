@@ -60,7 +60,7 @@ cask "alfred"
 cask "aquaskk"
 cask "karabiner-elements"
 cask "cheatsheet"
-cask "spectacle"
+cask "rectangle"
 
 # Browsers
 cask "google-chrome"
