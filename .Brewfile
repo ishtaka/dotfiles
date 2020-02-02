@@ -46,14 +46,6 @@ brew "pyenv"
 # Go
 brew "goenv", args: ["HEAD"]
 
-# Servers
-brew "httpd"
-brew "nginx"
-
-# Databases
-brew "mysql"
-brew "redis"
-
 # Editors
 brew "vim"
 
