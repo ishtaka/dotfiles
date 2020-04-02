@@ -18,6 +18,7 @@ eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 # Go
 eval "$(goenv init -)"
+export PATH=$GOPATH/bin:$PATH
 # Java
 export JAVA_HOME=`/usr/libexec/java_home`
 
