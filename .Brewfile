@@ -76,7 +76,6 @@ cask "wireshark"
 cask "jetbrains-toolbox"
 
 # Editors
-cask "atom"
 cask "visual-studio-code"
 
 # Misc
