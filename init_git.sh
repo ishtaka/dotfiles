@@ -25,6 +25,7 @@ git config --global core.excludesfile ~/.gitignore_global
 # alias
 git config --global alias.st status
 git config --global alias.br branch
+git config --global alias.brd "\!git branch -D \$(git branch -vv | peco | awk '{print \$1}')"
 git config --global alias.ch checkout
 git config --global alias.co commit
 git config --global alias.df diff
