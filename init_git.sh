@@ -30,4 +30,4 @@ git config --global alias.co commit
 git config --global alias.df diff
 git config --global alias.dfc "diff --cached"
 git config --global alias.sw switch
-git config --global alias.openpr \!"f() { hub browse -- \`git log --merges --oneline --reverse --ancestry-path \$1...master | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'\`; }; f"
+git config --global alias.sb \!"git switch \$(git branch --format='%(refname:short)' | peco)"
