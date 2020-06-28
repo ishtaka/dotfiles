@@ -17,7 +17,3 @@ rsync -av .config/karabiner ~/.config
 # peco
 rsync -av .config/peco ~/.config
 
-# Fonts
-cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
-fc-cache -vf
-
