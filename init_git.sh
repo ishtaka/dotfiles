@@ -22,6 +22,9 @@ git config --global color.branch auto
 # git global ignore
 git config --global core.excludesfile ~/.gitignore_global
 
+# pulling
+git config --global pull.rebase false
+
 # alias
 git config --global alias.st status
 git config --global alias.br branch
