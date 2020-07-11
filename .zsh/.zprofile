@@ -45,6 +45,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   /usr/local/{bin,sbin}
   /usr/local/opt/openssl/bin
+  /usr/local/opt/binutils/bin
   $path
 )
 
