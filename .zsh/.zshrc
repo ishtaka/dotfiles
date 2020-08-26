@@ -35,6 +35,10 @@ if [[ -s "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completio
     source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 
+if [[ -s "/usr/local/bin/kubectl" ]]; then
+    source <(kubectl completion zsh)
+fi
+
 # powerline
 RPROMPT=""
 

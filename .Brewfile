@@ -17,7 +17,6 @@ brew "git-flow"
 brew "git-lfs"
 brew "graphviz"
 brew "htop"
-brew "kind"
 brew "mas"
 brew "nkf"
 brew "peco"
@@ -46,6 +45,10 @@ brew "pyenv"
 
 # Go
 brew "goenv", args: ["HEAD"]
+
+# Kubernetes
+brew "kubernetes-cli"
+brew "kind"
 
 # Editors
 brew "vim"
