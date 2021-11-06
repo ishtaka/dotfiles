@@ -85,6 +85,7 @@ cask "jetbrains-toolbox"
 cask "visual-studio-code"
 
 # Misc
+cask "1password"
 cask "kindle"
 cask "slack"
 cask "tomighty"
