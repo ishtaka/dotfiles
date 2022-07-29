@@ -24,6 +24,8 @@ eval "$(goenv init -)"
 export PATH=$GOPATH/bin:$PATH
 # Java
 export JAVA_HOME=`/usr/libexec/java_home`
+# Node.js
+eval "$(nodenv init -)"
 
 # direnv
 eval "$(direnv hook zsh)"

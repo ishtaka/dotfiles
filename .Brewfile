@@ -44,6 +44,9 @@ brew "rbenv-gemset"
 # Python
 brew "pyenv"
 
+# Node.js
+brew "nodenv"
+
 # Go
 brew "goenv", args: ["HEAD"]
 
