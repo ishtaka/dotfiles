@@ -36,6 +36,9 @@ brew "cmake"
 brew "mono"
 brew "nuget"
 
+# Java
+brew "java"
+
 # Ruby
 brew "rbenv"
 brew "rbenv-gemset"
@@ -76,7 +79,6 @@ cask "google-chrome"
 cask "dash"
 cask "docker"
 cask "google-cloud-sdk"
-cask "java"
 cask "unity-hub"
 cask "wireshark"
 
