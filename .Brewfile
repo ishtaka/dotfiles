@@ -93,4 +93,5 @@ cask "1password"
 cask "kindle"
 cask "slack"
 cask "tomighty"
+cask "zoom"
 
