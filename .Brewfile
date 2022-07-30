@@ -6,7 +6,6 @@ tap "homebrew/services"
 
 # Packages
 brew "bash-completion"
-brew "binutils"
 brew "ccat"
 brew "coreutils"
 brew "curl"
