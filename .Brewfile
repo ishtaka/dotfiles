@@ -56,6 +56,7 @@ brew "goenv"
 # Kubernetes
 brew "kubernetes-cli"
 brew "kind"
+brew "helm"
 
 # Editors
 brew "vim"
