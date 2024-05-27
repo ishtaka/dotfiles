@@ -52,7 +52,7 @@ brew "pyenv"
 brew "nodenv"
 
 # Go
-brew "goenv", args: ["HEAD"]
+brew "goenv"
 
 # Kubernetes
 brew "kubernetes-cli"
