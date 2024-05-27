@@ -70,7 +70,6 @@ cask "font-hack-nerd-font"
 cask "alfred"
 cask "aquaskk"
 cask "karabiner-elements"
-cask "cheatsheet"
 cask "rectangle"
 
 # Browsers
