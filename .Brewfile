@@ -77,7 +77,6 @@ cask "rectangle"
 cask "google-chrome"
 
 # Development Tools
-cask "dash"
 cask "docker"
 cask "google-cloud-sdk"
 cask "unity-hub"
@@ -91,8 +90,6 @@ cask "visual-studio-code"
 
 # Misc
 cask "1password"
-cask "kindle"
 cask "slack"
-cask "tomighty"
 cask "zoom"
 
