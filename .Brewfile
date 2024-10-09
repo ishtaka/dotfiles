@@ -77,6 +77,7 @@ cask "google-chrome"
 
 # Development Tools
 cask "docker"
+cask "devtoys"
 cask "google-cloud-sdk"
 cask "unity-hub"
 cask "wireshark"
