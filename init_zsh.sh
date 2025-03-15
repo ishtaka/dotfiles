@@ -13,6 +13,4 @@ do
 done
 
 # use zsh
-echo /usr/local/bin/zsh | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/zsh
-
+chsh -s /bin/zsh
