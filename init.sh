@@ -17,3 +17,5 @@ rsync -av .config/karabiner ~/.config
 # peco
 rsync -av .config/peco ~/.config
 
+# Java
+sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
