@@ -34,6 +34,7 @@ brew "cmake"
 
 # CSharp
 brew "mono"
+brew "dotnet"
 brew "nuget"
 
 # Java
