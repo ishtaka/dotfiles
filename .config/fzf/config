@@ -1,0 +1,7 @@
+--ansi
+-e
+--prompt='QUERY> '
+--layout=reverse
+--border=rounded
+--no-sort
+--height 80%

@@ -14,8 +14,8 @@ brew bundle --global
 
 # Karabiner
 rsync -av .config/karabiner ~/.config
-# peco
-rsync -av .config/peco ~/.config
+# fzf
+rsync -av .config/fzf ~/.config
 
 # Java
 sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk

@@ -28,10 +28,10 @@ git config --global pull.rebase false
 # alias
 git config --global alias.st status
 git config --global alias.br branch
-git config --global alias.brd \!"git branch -D \$(git branch -vv | peco | awk '{print \$1}')"
+git config --global alias.brd \!"git branch -D \$(git branch -vv | fzf | awk '{print \$1}')"
 git config --global alias.ch checkout
 git config --global alias.co commit
 git config --global alias.df diff
 git config --global alias.dfc "diff --cached"
 git config --global alias.sw switch
-git config --global alias.sb \!"git switch \$(git branch --format='%(refname:short)' | peco)"
+git config --global alias.sb \!"git switch \$(git branch --format='%(refname:short)' | fzf)"

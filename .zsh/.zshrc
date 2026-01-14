@@ -44,6 +44,9 @@ if [[ -s "/usr/local/bin/kubectl" ]]; then
     source <(kubectl completion zsh)
 fi
 
+# fzf
+export FZF_DEFAULT_OPTS_FILE=$HOME/.config/fzf/config
+
 # powerline
 RPROMPT=""
 
@@ -60,36 +63,43 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
 fi
 
-# history via peco
-if type "peco" > /dev/null 2>&1; then
-  function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
+# history via fzf
+if type "fzf" > /dev/null 2>&1; then
+  function fzf-history-selection() {
+    local selected=`history -n 1 | tail -r  | awk '!a[$0]++' | fzf`
+    if [ -n "$selected" ]; then
+      BUFFER=$selected
+      CURSOR=$#BUFFER
+    fi
     zle reset-prompt
   }
-  zle -N peco-history-selection
-  bindkey '^R' peco-history-selection
+  zle -N fzf-history-selection
+  bindkey '^R' fzf-history-selection
 
-  function peco-cdr () {
-    local selected_dir="$(cdr -l | awk '{ print $2 }' | peco)"
+  function fzf-cdr () {
+    local selected_dir="$(cdr -l | awk '{ print $2 }' | fzf)"
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
+    else
+        zle redisplay
     fi
   }
-  zle -N peco-cdr
-  bindkey '^D' peco-cdr
+  zle -N fzf-cdr
+  bindkey '^D' fzf-cdr
 
   if type "ghq" > /dev/null 2>&1; then
-      function peco-ghq() {
-          local selected_dir=$(ghq list -p | sort | peco --query "$LBUFFER")
+      function fzf-ghq() {
+          local selected_dir=$(find "$(ghq root)" -type d -name .git -maxdepth 7 | sed -e "s#/.git##" | sort | fzf --query "$LBUFFER")
           if [ -n "$selected_dir" ]; then
               BUFFER="cd ${selected_dir}"
               zle accept-line
+          else
+              zle redisplay
           fi
       }
-      zle -N peco-ghq
-      bindkey '^O' peco-ghq
+      zle -N fzf-ghq
+      bindkey '^O' fzf-ghq
   fi
 fi
 
