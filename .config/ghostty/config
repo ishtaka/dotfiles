@@ -1,0 +1,19 @@
+# Theme
+theme = "Solarized Dark Higher Contrast"
+
+# Font
+font-family = "Hack Nerd Font Mono"
+font-size = 12
+
+# Window
+background-opacity = 0.8
+window-padding-balance = true
+window-padding-x = 0
+window-save-state = always
+
+# Keybind
+keybind = "global:cmd+i=toggle_visibility"
+
+# macOS
+macos-titlebar-style = tabs
+macos-option-as-alt = true

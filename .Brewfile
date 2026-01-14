@@ -62,7 +62,7 @@ brew "helm"
 brew "vim"
 
 # Terminal
-cask "iterm2"
+cask "ghostty"
 
 # Fonts
 cask "font-hack-nerd-font"
