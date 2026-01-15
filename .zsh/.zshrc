@@ -90,7 +90,7 @@ if type "fzf" > /dev/null 2>&1; then
 
   if type "ghq" > /dev/null 2>&1; then
       function fzf-ghq() {
-          local selected_dir=$(find "$(ghq root)" -type d -name .git -maxdepth 7 | sed -e "s#/.git##" | sort | fzf --query "$LBUFFER")
+          local selected_dir=$(fd -H -t d '^\.git$' "$(ghq root)" --max-depth 7 | sed -e "s#/.git##" | sort | fzf --query "$LBUFFER")
           if [ -n "$selected_dir" ]; then
               BUFFER="cd ${selected_dir}"
               zle accept-line
