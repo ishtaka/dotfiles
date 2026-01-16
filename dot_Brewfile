@@ -1,7 +1,3 @@
-# Formula
-tap "homebrew/bundle"
-tap "homebrew/services"
-
 # Packages
 brew "bash-completion"
 brew "ccat"
@@ -41,18 +37,8 @@ brew "nuget"
 # Java
 brew "java"
 
-# Ruby
-brew "rbenv"
-brew "rbenv-gemset"
-
-# Python
-brew "pyenv"
-
-# Node.js
-brew "nodenv"
-
-# Go
-brew "goenv"
+# Tool Version Manager
+brew "mise"
 
 # Kubernetes
 brew "kubernetes-cli"
@@ -78,11 +64,11 @@ cask "rectangle"
 cask "google-chrome"
 
 # Development Tools
-cask "docker"
+cask "docker-desktop"
 cask "devtoys"
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 cask "unity-hub"
-cask "wireshark"
+cask "wireshark-app"
 
 # IDEs
 cask "jetbrains-toolbox"
@@ -93,5 +79,4 @@ cask "visual-studio-code"
 # Misc
 cask "1password"
 cask "slack"
-cask "zoom"
 

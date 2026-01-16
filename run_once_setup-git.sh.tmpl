@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -euo pipefail
+
+echo "Configuring git..."
+
+# User info
+git config --global user.name "{{ .name }}"
+git config --global user.email "{{ .email }}"
+
+# Prevent garbled characters
+git config --global core.quotepath false
+
+# Auto LF
+git config --global core.autocrlf input
+
+# Color UI
+git config --global color.ui auto
+git config --global color.status auto
+git config --global color.branch auto
+
+# Global ignore
+git config --global core.excludesFile ~/.gitignore_global
+
+# Pulling
+git config --global pull.rebase false
+
+# Aliases
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.brd '!git branch -D $(git branch -vv | fzf | awk '"'"'{print $1}'"'"')'
+git config --global alias.ch checkout
+git config --global alias.co commit
+git config --global alias.df diff
+git config --global alias.dfc "diff --cached"
+git config --global alias.sw switch
+git config --global alias.sb '!git switch $(git branch --format='"'"'%(refname:short)'"'"' | fzf)'
+
+echo "Git configuration complete!"

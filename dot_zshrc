@@ -1,0 +1,23 @@
+# ~/.zshrc - Zsh Configuration
+
+# Load split configuration files in explicit order
+local zsh_config_files=(
+    options.zsh
+    history.zsh
+    completion.zsh
+    keybindings.zsh
+    aliases.zsh
+    dev-env.zsh
+    fzf.zsh
+)
+for file in $zsh_config_files; do
+    [[ -f ~/.config/zsh/$file ]] && source ~/.config/zsh/$file
+done
+
+# Powerlevel10k (managed by chezmoiexternal)
+if [[ -f ~/.local/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    source ~/.local/share/powerlevel10k/powerlevel10k.zsh-theme
+fi
+
+# Powerlevel10k configuration
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
