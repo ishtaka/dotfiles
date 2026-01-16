@@ -37,18 +37,8 @@ brew "nuget"
 # Java
 brew "java"
 
-# Ruby
-brew "rbenv"
-brew "rbenv-gemset"
-
-# Python
-brew "pyenv"
-
-# Node.js
-brew "nodenv"
-
-# Go
-brew "goenv"
+# Tool Version Manager
+brew "mise"
 
 # Kubernetes
 brew "kubernetes-cli"
