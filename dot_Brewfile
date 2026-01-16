@@ -1,7 +1,3 @@
-# Formula
-tap "homebrew/bundle"
-tap "homebrew/services"
-
 # Packages
 brew "bash-completion"
 brew "ccat"
@@ -78,11 +74,11 @@ cask "rectangle"
 cask "google-chrome"
 
 # Development Tools
-cask "docker"
+cask "docker-desktop"
 cask "devtoys"
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 cask "unity-hub"
-cask "wireshark"
+cask "wireshark-app"
 
 # IDEs
 cask "jetbrains-toolbox"
@@ -93,5 +89,4 @@ cask "visual-studio-code"
 # Misc
 cask "1password"
 cask "slack"
-cask "zoom"
 

@@ -1,0 +1,7 @@
+# External repositories managed by chezmoi
+
+# Powerlevel10k - Zsh theme
+[".local/share/powerlevel10k"]
+    type = "git-repo"
+    url = "https://github.com/romkatv/powerlevel10k.git"
+    refreshPeriod = "168h"

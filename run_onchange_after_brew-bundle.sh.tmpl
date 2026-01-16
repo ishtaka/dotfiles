@@ -1,0 +1,7 @@
+#!/bin/bash
+# Hash: {{ include "dot_Brewfile" | sha256sum }}
+
+set -euo pipefail
+
+echo "Running brew bundle..."
+brew bundle --global
