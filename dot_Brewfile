@@ -1,6 +1,7 @@
 # Packages
 brew "bash-completion"
 brew "ccat"
+brew "chezmoi"
 brew "coreutils"
 brew "curl"
 brew "direnv"
