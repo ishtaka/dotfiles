@@ -3,6 +3,15 @@
 # fzf options file
 export FZF_DEFAULT_OPTS_FILE=$HOME/.config/fzf/config
 
+# fzf keybinding options
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always {}' --preview-window=right:50%"
+export FZF_ALT_C_OPTS="--preview 'eza -la --icons=always {}' --preview-window=right:50%"
+
+# fzf standard keybindings
+if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
+    source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+fi
+
 # cdr (recent directories)
 if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
     autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -13,20 +22,8 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
 fi
 
-# fzf functions
+# Custom fzf functions
 if type fzf &>/dev/null; then
-    # History search (Ctrl+R)
-    function fzf-history-selection() {
-        local selected=$(history -n 1 | tail -r | awk '!a[$0]++' | fzf)
-        if [[ -n "$selected" ]]; then
-            BUFFER=$selected
-            CURSOR=$#BUFFER
-        fi
-        zle reset-prompt
-    }
-    zle -N fzf-history-selection
-    bindkey '^R' fzf-history-selection
-
     # cdr - recent directory selection (Ctrl+D)
     function fzf-cdr() {
         local selected_dir=$(cdr -l | awk '{ print $2 }' | fzf)
