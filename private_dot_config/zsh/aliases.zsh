@@ -1,11 +1,11 @@
 # aliases.zsh - Alias definitions
 
-# ls (macOS/BSD)
-alias ls='ls -G'
-alias l='ls -1A'
-alias ll='ls -lh'
-alias la='ll -A'
-alias lt='ll -tr'
+# ls (eza)
+alias ls='eza'
+alias l='eza -1a'
+alias ll='eza -l'
+alias la='eza -la'
+alias lt='eza -l --sort=modified'
 
 # grep
 export GREP_COLOR='37;45'
