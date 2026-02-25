@@ -67,7 +67,6 @@ cask "rectangle"
 cask "google-chrome"
 
 # Development Tools
-cask "claude-code"
 cask "docker-desktop"
 cask "devtoys"
 cask "gcloud-cli"
