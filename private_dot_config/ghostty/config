@@ -3,6 +3,7 @@ theme = "Solarized Dark Higher Contrast"
 
 # Font
 font-family = "Hack Nerd Font Mono"
+font-family = "BIZ UDGothic"
 font-size = 12
 
 # Window
