@@ -9,6 +9,7 @@ local zsh_config_files=(
     aliases.zsh
     dev-env.zsh
     fzf.zsh
+    yazi.zsh
 )
 for file in $zsh_config_files; do
     [[ -f ~/.config/zsh/$file ]] && source ~/.config/zsh/$file

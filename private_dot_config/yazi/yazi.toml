@@ -1,0 +1,22 @@
+# yazi.toml - Yazi file manager configuration
+
+[mgr]
+show_hidden = true
+sort_by = "natural"
+sort_dir_first = true
+ratio = [1, 2, 3]
+linemode = "size"
+
+[preview]
+max_width = 1000
+max_height = 1000
+
+[opener]
+edit = [
+    { run = '${EDITOR:-nvim} "$@"', block = true, for = "unix" },
+]
+
+[plugin]
+prepend_previewers = [
+    { name = "*.md", run = "code" },
+]
