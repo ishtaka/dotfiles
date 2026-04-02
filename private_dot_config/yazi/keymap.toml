@@ -1,0 +1,6 @@
+# keymap.toml - Yazi keybindings
+
+[[mgr.prepend_keymap]]
+on   = "<C-t>"
+run  = """shell 'selected=$(fd --type f --hidden --exclude .git | fzf --preview "bat --style=numbers --color=always {}" --preview-window=right:50%); [ -n "$selected" ] && ya emit reveal "$selected"' --block"""
+desc = "fzf file search"
