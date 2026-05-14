@@ -18,5 +18,5 @@ edit = [
 
 [plugin]
 prepend_previewers = [
-    { name = "*.md", run = "code" },
+    { url = "*.md", run = "code" },
 ]
