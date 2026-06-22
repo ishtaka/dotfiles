@@ -1,0 +1,74 @@
+{
+  description = "Minimal nix-darwin config for initial macOS system settings";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { nixpkgs, nix-darwin, ... }: {
+    darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
+      modules = [
+        {
+          # 環境固有の値は chezmoi が自動補完する
+          nixpkgs.hostPlatform = "{{ if eq .chezmoi.arch "arm64" }}aarch64-darwin{{ else }}x86_64-darwin{{ end }}";
+          system.primaryUser = "{{ .chezmoi.username }}";
+          system.stateVersion = 6;
+
+          # 修飾キー（Caps Lock → Control）
+          system.keyboard.enableKeyMapping = true;
+          system.keyboard.remapCapsLockToControl = true;
+
+          system.defaults = {
+            # デスクトップとDock
+            dock = {
+              autohide = true;          # Dock を自動的に表示/非表示
+              orientation = "right";    # 画面上の位置: 右
+              tilesize = 36;            # サイズ（px 指定）
+              wvous-tl-corner = 1;      # ホットコーナーをすべて無効
+              wvous-tr-corner = 1;
+              wvous-bl-corner = 1;
+              wvous-br-corner = 1;
+            };
+
+            # ステージマネージャ OFF
+            WindowManager.GloballyEnabled = false;
+
+            # キーボード / テキスト入力
+            NSGlobalDomain = {
+              KeyRepeat = 2;            # キーのリピート: 速い
+              InitialKeyRepeat = 15;    # 認識までの時間: 短い
+              "com.apple.keyboard.fnState" = true;         # F1/F2 を標準ファンクションキーに
+              NSAutomaticCapitalizationEnabled = false;    # 文頭を自動的に大文字にしない
+              NSAutomaticQuoteSubstitutionEnabled = false; # スマート引用符を使わない
+              NSAutomaticDashSubstitutionEnabled = false;  # スマートダッシュを使わない
+            };
+
+            # トラックパッド
+            trackpad = {
+              Clicking = true;          # タップでクリック
+              TrackpadRightClick = true; # 2 本指で副ボタンのクリック
+              TrackpadThreeFingerDrag = true; # 3 本指でドラッグ
+              FirstClickThreshold = 1;  # クリックの強さ: 中
+            };
+
+            # コントロールセンター（メニューバー表示）
+            controlcenter = {
+              AirDrop = false;          # メニューバーに非表示
+              Sound = true;             # メニューバーに常に表示
+            };
+
+            # メニューバーの時計
+            menuExtraClock = {
+              ShowDayOfWeek = true;     # 曜日を表示
+              ShowDate = 0;             # 表示スペースがあるときのみ
+            };
+          };
+        }
+      ];
+    };
+  };
+}
