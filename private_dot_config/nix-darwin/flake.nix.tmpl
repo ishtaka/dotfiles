@@ -18,6 +18,9 @@
           system.primaryUser = "{{ .chezmoi.username }}";
           system.stateVersion = 6;
 
+          # Determinate Nix を使うため nix-darwin では Nix を管理しない
+          nix.enable = false;
+
           # 修飾キー（Caps Lock → Control）
           system.keyboard.enableKeyMapping = true;
           system.keyboard.remapCapsLockToControl = true;
