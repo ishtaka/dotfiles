@@ -64,6 +64,7 @@ cask "font-hack-nerd-font"
 # Inputs
 cask "alfred"
 cask "aquaskk"
+cask "hammerspoon"
 cask "karabiner-elements"
 cask "rectangle"
 
