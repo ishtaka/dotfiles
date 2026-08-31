@@ -25,7 +25,7 @@ fi
 
 # Use jq for all calculations (avoids locale issues with bc/awk/printf).
 # Missing values come back as "-" so the shell side can drop that section.
-IFS=$'\t' read -r ctx_used ctx_size ctx_pct cost_usd h5_pct h5_left d7_pct d7_left < <(echo "$input" | jq -r '
+IFS=$'\t' read -r effort_level ctx_used ctx_size ctx_pct cost_usd h5_pct h5_left d7_pct d7_left < <(echo "$input" | jq -r '
   def fmtnum:
     if . >= 1000000 then ((. / 1000000 * 10 | round) / 10 | tostring) + "M"
     elif . >= 1000 then ((. / 1000 * 10 | round) / 10 | tostring) + "K"
@@ -40,6 +40,7 @@ IFS=$'\t' read -r ctx_used ctx_size ctx_pct cost_usd h5_pct h5_left d7_pct d7_le
   (.context_window // {}) as $ctx |
   (.rate_limits // {}) as $rl |
   [
+    (.effort.level // "-"),
     (if $ctx.used_percentage == null then "-"
      else (($ctx.total_input_tokens // 0) + ($ctx.total_output_tokens // 0)) | fmtnum end),
     (if $ctx.context_window_size == null then "-" else $ctx.context_window_size | fmtnum end),
@@ -75,40 +76,44 @@ colorize_pct() {
   fi
 }
 
-# Context window: used / limit (percentage)
-if [ "$ctx_used" = "-" ]; then
-  CONTEXT_SEGMENT="📊 ${DIM}-${RESET}"
+# Effort level shown next to the model name
+if [ "$effort_level" = "-" ]; then
+  EFFORT_SEGMENT=""
 else
-  CONTEXT_SEGMENT="📊 ${ctx_used}/${ctx_size} ($(colorize_pct "$ctx_pct"))"
+  EFFORT_SEGMENT="${DIM}(${effort_level})${RESET}"
+fi
+
+# Context window: used/limit(percentage)
+if [ "$ctx_used" = "-" ]; then
+  CONTEXT_SEGMENT="📊${DIM}-${RESET}"
+else
+  CONTEXT_SEGMENT="📊${ctx_used}/${ctx_size}($(colorize_pct "$ctx_pct"))"
 fi
 
 # Session cost so far
 if [ "$cost_usd" = "-" ]; then
   COST_SEGMENT=""
 else
-  COST_SEGMENT=" | 💰 \$${cost_usd}"
+  COST_SEGMENT=" | 💰\$${cost_usd}"
 fi
 
-# Rate limits: 5-hour session window, then the 7-day window
+# Rate limits: hourglass for the 5-hour session window, calendar for the 7-day window
 LIMIT_SEGMENT=""
 if [ "$h5_pct" != "-" ]; then
-  LIMIT_SEGMENT=" | ⏳ 5h $(colorize_pct "$h5_pct")"
+  LIMIT_SEGMENT=" | ⏳5h $(colorize_pct "$h5_pct")"
   if [ "$h5_left" != "-" ]; then
-    LIMIT_SEGMENT="${LIMIT_SEGMENT} ${DIM}(${h5_left})${RESET}"
+    LIMIT_SEGMENT="${LIMIT_SEGMENT}${DIM}(${h5_left})${RESET}"
   fi
 fi
 if [ "$d7_pct" != "-" ]; then
-  if [ -z "$LIMIT_SEGMENT" ]; then
-    LIMIT_SEGMENT=" | ⏳"
-  else
-    LIMIT_SEGMENT="${LIMIT_SEGMENT}${DIM},${RESET}"
-  fi
-  LIMIT_SEGMENT="${LIMIT_SEGMENT} 7d $(colorize_pct "$d7_pct")"
+  # Both windows are the same kind of limit, so a space separates them, not a pipe
+  if [ -z "$LIMIT_SEGMENT" ]; then D7_PREFIX=" | "; else D7_PREFIX=" "; fi
+  LIMIT_SEGMENT="${LIMIT_SEGMENT}${D7_PREFIX}📅7d $(colorize_pct "$d7_pct")"
   if [ "$d7_left" != "-" ]; then
-    LIMIT_SEGMENT="${LIMIT_SEGMENT} ${DIM}(${d7_left})${RESET}"
+    LIMIT_SEGMENT="${LIMIT_SEGMENT}${DIM}(${d7_left})${RESET}"
   fi
 fi
 
 # Emoji icons are environment-dependent (font coverage and cell width).
 # Replace them with ASCII labels if the status line renders misaligned.
-echo "🤖 ${MODEL_DISPLAY} | 📁 ${DIR_NAME} | ${CONTEXT_SEGMENT}${COST_SEGMENT}${LIMIT_SEGMENT}"
+echo "🤖${MODEL_DISPLAY}${EFFORT_SEGMENT} | 📁${DIR_NAME} | ${CONTEXT_SEGMENT}${COST_SEGMENT}${LIMIT_SEGMENT}"
