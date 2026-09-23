@@ -21,6 +21,7 @@ alias cat='ccat'
 alias g='git'
 alias rm='trash'
 alias o='open'
+alias claude='claude --allowedTools=Grep'
 
 # Resource usage
 alias df='df -kh'
