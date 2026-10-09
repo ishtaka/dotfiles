@@ -82,9 +82,6 @@ cask "wireshark-app"
 # IDEs
 cask "jetbrains-toolbox"
 
-# Editors
-cask "visual-studio-code"
-
 # Misc
 cask "1password"
 cask "slack"
