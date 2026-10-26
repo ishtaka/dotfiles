@@ -3,29 +3,13 @@
 # Redirect all stderr to /dev/null to prevent UI interference
 exec 2>/dev/null
 
-# Read JSON input from stdin
-input=$(cat)
-
-# Extract model display name with fallback
-MODEL_DISPLAY=$(echo "$input" | jq -r '.model.display_name // .model.id // "Claude"')
-
-# Extract current directory with fallback
-CURRENT_DIR=$(echo "$input" | jq -r '.workspace.current_dir // .workspace.project_dir // .cwd // empty')
-
-# If still empty, use PWD
-if [ -z "$CURRENT_DIR" ] || [ "$CURRENT_DIR" = "null" ]; then
-  CURRENT_DIR="$PWD"
-fi
-
-# Truncate directory name if too long (max 20 chars)
-DIR_NAME="${CURRENT_DIR##*/}"
-if [ ${#DIR_NAME} -gt 20 ]; then
-  DIR_NAME="${DIR_NAME:0:17}..."
-fi
+# Read JSON input from stdin with a bash builtin (no external process: every exec is
+# slow under endpoint security software, so this script spawns jq exactly once)
+input=$(</dev/stdin)
 
 # Use jq for all calculations (avoids locale issues with bc/awk/printf).
 # Missing values come back as "-" so the shell side can drop that section.
-IFS=$'\t' read -r effort_level ctx_used ctx_size ctx_pct cost_usd h5_pct h5_left d7_pct d7_left < <(echo "$input" | jq -r '
+IFS=$'\t' read -r MODEL_DISPLAY CURRENT_DIR effort_level ctx_used ctx_size ctx_pct cost_usd h5_pct h5_left d7_pct d7_left < <(echo "$input" | jq -r '
   def fmtnum:
     if . >= 1000000 then ((. / 1000000 * 10 | round) / 10 | tostring) + "M"
     elif . >= 1000 then ((. / 1000 * 10 | round) / 10 | tostring) + "K"
@@ -40,6 +24,8 @@ IFS=$'\t' read -r effort_level ctx_used ctx_size ctx_pct cost_usd h5_pct h5_left
   (.context_window // {}) as $ctx |
   (.rate_limits // {}) as $rl |
   [
+    (.model.display_name // .model.id // "Claude"),
+    (.workspace.current_dir // .workspace.project_dir // .cwd // "-"),
     (.effort.level // "-"),
     (if $ctx.used_percentage == null then "-"
      else (($ctx.total_input_tokens // 0) + ($ctx.total_output_tokens // 0)) | fmtnum end),
@@ -54,6 +40,17 @@ IFS=$'\t' read -r effort_level ctx_used ctx_size ctx_pct cost_usd h5_pct h5_left
     (if $rl.seven_day.resets_at == null then "-" else ($rl.seven_day.resets_at - now) | fmtdur end)
   ] | @tsv
 ')
+
+# If the directory is missing, use PWD
+if [ -z "$CURRENT_DIR" ] || [ "$CURRENT_DIR" = "-" ]; then
+  CURRENT_DIR="$PWD"
+fi
+
+# Truncate directory name if too long (max 20 chars)
+DIR_NAME="${CURRENT_DIR##*/}"
+if [ ${#DIR_NAME} -gt 20 ]; then
+  DIR_NAME="${DIR_NAME:0:17}..."
+fi
 
 # ANSI color codes
 RED=$'\033[31m'
